@@ -12,13 +12,24 @@
 
 /* 1 - Enunciado
 
-- Levantar los datos data.js parseando el JSON, generando
+- Levantar (traer??) los datos data.js parseando el JSON, generando
 una array de personas.
 - Con el array anterior utilice el metodo filter para generar
 un array de personas mayores o igual a 18 años.
 - Imprimir en consola el array resultante.
 
 */
+
+localStorage.setItem("personasEnJSON", personasJSON)
+console.log(localStorage.getItem("personasEnJSON"))
+
+const personas = JSON.parse(localStorage.getItem("personasEnJSON"))
+console.log(personas)
+
+const personasFiltradas = personas.filter(persona => {
+    return persona.edad >= 18
+});
+console.log(personasFiltradas)
 
 /* 2 - Enunciado
 
@@ -31,9 +42,11 @@ en el HTML (es decir, generar el contenido de forma dinámica).
 
 */
 
+personasFiltradas
+
 /* 3 - BONUS TRACK
 
-- Si misión, en caso que decida aceptarla, es que la edad a filtrar
+- Su misión, en caso que decida aceptarla, es que la edad a filtrar
 en el primer enunciado no sea un valor escrito en este script, sino
 que sea un valor que se toma del HTML (un input).
 - Que toda la acción de filtrado (enunciado 1) y renderizado (enunciado 2)

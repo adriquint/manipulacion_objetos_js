@@ -1,3 +1,4 @@
+"use strict";
 
 const personasJSON = `[
     {"nombre": "Max", "edad": 20},
