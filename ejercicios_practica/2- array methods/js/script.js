@@ -41,8 +41,19 @@ mecanismos que prefiera para agregar por cada persona el nombre y edad
 en el HTML (es decir, generar el contenido de forma dinámica).
 
 */
+   
+let accumulator = ""
+    personasFiltradas.forEach(persona => {
+        accumulator += `
+        <article>           
+            <h3> Nombre: ${persona.nombre}</h3>
+            <h4> Edad: ${persona.edad}</h4>
+        </article>
+        `;
+    })
 
-personasFiltradas
+    const section = document.querySelector("section");  
+    section.innerHTML = accumulator;
 
 /* 3 - BONUS TRACK
 
@@ -53,3 +64,23 @@ que sea un valor que se toma del HTML (un input).
 se dispare al presionar un botón en el HTML que usted agregue.
 
 */
+
+const enviar = document.getElementById("btnEnviar")
+const edad = document.getElementById("edad")
+//const edadesIngresadas = [""]
+//const input = document.getElementById("input")
+
+enviar.onclick = () => {
+    localStorage.setItem("edad ingresada", edad.value);
+    const edadesEnLocal = localStorage.getItem("edad ingresada")
+    console.log(`La edad ingresada es: ${edadesEnLocal}`)
+    //edadesIngresadas.push(edad.value)
+
+    /*const edadFiltrada = edadesEnLocal.filter( edad => {
+        return edad.value >= 18
+    });
+    console.log(edadFiltrada)*/
+
+}
+
+
