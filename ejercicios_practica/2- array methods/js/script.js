@@ -46,14 +46,14 @@ let accumulator = ""
     personasFiltradas.forEach(persona => {
         accumulator += `
         <article>           
-            <h3> Nombre: ${persona.nombre}</h3>
-            <h4> Edad: ${persona.edad}</h4>
+            <h3> ${persona.nombre} es mayor de edad. Tiene ${persona.edad} años.</h3>
         </article>
         `;
     })
 
-    const section = document.querySelector("section");  
-    section.innerHTML = accumulator;
+    const enunciado2 = document.getElementById("enunciado2");
+    console.log(enunciado2)
+    enunciado2.innerHTML = accumulator;
 
 /* 3 - BONUS TRACK
 
@@ -67,6 +67,7 @@ se dispare al presionar un botón en el HTML que usted agregue.
 
 const enviar = document.getElementById("btnEnviar")
 const edad = document.getElementById("edad")
+const enunciado3 = document.getElementById("enunciado3");
 //const edadesIngresadas = [""]
 //const input = document.getElementById("input")
 
@@ -75,12 +76,29 @@ enviar.onclick = () => {
     const edadesEnLocal = localStorage.getItem("edad ingresada")
     console.log(`La edad ingresada es: ${edadesEnLocal}`)
     //edadesIngresadas.push(edad.value)
+    //console.log(edadesIngresadas)
 
     /*const edadFiltrada = edadesEnLocal.filter( edad => {
         return edad.value >= 18
     });
     console.log(edadFiltrada)*/
-
+    
+    let accumulator = ""
+    edad.value >= 18 ? (
+        accumulator += `
+        <article>           
+            <h4>La edad ingresada es: ${edad.value} años</h4>
+            <h4>Usted es mayor de edad</h4>
+        </article>
+        `,
+        enunciado3.innerHTML = accumulator
+    ) : (
+        accumulator += `
+        <article>           
+            <h4> La edad ingresada es: ${edad.value} años</h4>
+            <h4> Usted es menor de edad</h4>
+        </article>
+        `,
+        enunciado3.innerHTML = accumulator
+    )
 }
-
-
