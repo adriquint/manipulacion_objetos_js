@@ -12,7 +12,7 @@
 
 /* 1 - Enunciado
 
-- Levantar (traer??) los datos data.js parseando el JSON, generando
+- Levantar los datos data.js parseando el JSON, generando
 una array de personas.
 - Con el array anterior utilice el metodo filter para generar
 un array de personas mayores o igual a 18 años.
@@ -68,21 +68,12 @@ se dispare al presionar un botón en el HTML que usted agregue.
 const enviar = document.getElementById("btnEnviar")
 const edad = document.getElementById("edad")
 const enunciado3 = document.getElementById("enunciado3");
-//const edadesIngresadas = [""]
-//const input = document.getElementById("input")
 
 enviar.onclick = () => {
     localStorage.setItem("edad ingresada", edad.value);
     const edadesEnLocal = localStorage.getItem("edad ingresada")
     console.log(`La edad ingresada es: ${edadesEnLocal}`)
-    //edadesIngresadas.push(edad.value)
-    //console.log(edadesIngresadas)
-
-    /*const edadFiltrada = edadesEnLocal.filter( edad => {
-        return edad.value >= 18
-    });
-    console.log(edadFiltrada)*/
-    
+       
     let accumulator = ""
     edad.value >= 18 ? (
         accumulator += `
